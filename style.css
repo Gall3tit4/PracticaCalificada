@@ -1,0 +1,108 @@
+/* Colores base */
+:root {
+    --orange: #f75c03;
+    --white: #ffffff;
+    --light-gray: #f4f4f4;
+    --gray: #ccc;
+    --black: #000;
+  }
+  
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Hero superior */
+  .hero {
+    background-color: var(--orange);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Galería de imágenes */
+  .gallery {
+    background-color: var(--light-gray);
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .image-grid img {
+    width: 300px;
+    height: auto;
+    transition: opacity 0.3s ease;
+  }
+  
+  .image-grid img:hover {
+    opacity: 0.9; /* 10% menos transparente */
+  }
+  
+  /* Créditos */
+  .credits {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 1rem 0;
+  }
+  
+  /* Botón */
+  .btn {
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #d94f02;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 480px) {
+    .image-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 900px) {
+    .image-grid {
+      justify-content: space-around;
+    }
+  }
+  
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .image-grid {
+      justify-content: space-between;
+    }
+  }
+  
+  @media (min-width: 1201px) {
+    .image-grid {
+      justify-content: center;
+    }
+  }
+  
