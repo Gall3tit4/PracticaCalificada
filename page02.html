@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Page02</title>
+    <link rel="stylesheet" href="page02.css">
+</head>
+<body>
+
+    <!-- Ventana estilo configuraciones de íconos -->
+    <div class="ventana">
+        <div class="barra-superior">
+            <div class="iconos">
+                <svg width="20" height="20" fill="white"><circle cx="10" cy="10" r="3"/></svg>
+                <svg width="20" height="20" fill="white"><polygon points="5,10 15,5 15,15"/></svg>
+                <svg width="20" height="20" fill="white"><rect x="4" y="4" width="12" height="12"/></svg>
+                <svg width="20" height="20" fill="white"><path d="M4,4 L16,16 M16,4 L4,16" stroke="white" stroke-width="2"/></svg>
+            </div>
+        </div>
+
+        <div class="control-item">
+            <label>Media volume</label>
+            <div class="control-bar">
+                <svg width="20" height="20" fill="white"><path d="M5 10 L10 5 L10 15 Z"/></svg>
+                <input type="range" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <div class="control-item">
+            <label>Alarm volume</label>
+            <div class="control-bar">
+                <input type="range" min="0" max="100" value="50">
+                <svg width="20" height="20" fill="white"><circle cx="10" cy="10" r="8"/></svg>
+            </div>
+        </div>
+
+        <div class="control-item">
+            <label>Icon click callback</label>
+            <div class="control-bar">
+                <svg width="20" height="20" fill="white"><circle cx="8" cy="8" r="6"/><line x1="12" y1="12" x2="18" y2="18" stroke="white" stroke-width="2"/></svg>
+                <input type="range" min="0" max="100" value="50">
+                <svg width="20" height="20" fill="white"><circle cx="8" cy="8" r="6"/><line x1="12" y1="12" x2="18" y2="18" stroke="white" stroke-width="2"/></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card para selector de color RGB -->
+    <div class="card">
+        <div class="color-display" id="colorDisplay"></div>
+        <div class="color-controls">
+            <div class="control">
+                <label>R</label>
+                <input type="range" min="0" max="255" value="80" id="rRange">
+                <input type="number" min="0" max="255" value="80" id="rNumber">
+            </div>
+            <div class="control">
+                <label>G</label>
+                <input type="range" min="0" max="255" value="165" id="gRange">
+                <input type="number" min="0" max="255" value="165" id="gNumber">
+            </div>
+            <div class="control">
+                <label>B</label>
+                <input type="range" min="0" max="255" value="92" id="bRange">
+                <input type="number" min="0" max="255" value="92" id="bNumber">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rRange = document.getElementById("rRange");
+        const gRange = document.getElementById("gRange");
+        const bRange = document.getElementById("bRange");
+
+        const rNumber = document.getElementById("rNumber");
+        const gNumber = document.getElementById("gNumber");
+        const bNumber = document.getElementById("bNumber");
+
+        const colorDisplay = document.getElementById("colorDisplay");
+
+        function updateColor() {
+            const r = parseInt(rRange.value);
+            const g = parseInt(gRange.value);
+            const b = parseInt(bRange.value);
+
+            colorDisplay.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+            rNumber.value = r;
+            gNumber.value = g;
+            bNumber.value = b;
+        }
+
+        rRange.addEventListener("input", updateColor);
+        gRange.addEventListener("input", updateColor);
+        bRange.addEventListener("input", updateColor);
+
+        rNumber.addEventListener("input", () => {
+            rRange.value = rNumber.value;
+            updateColor();
+        });
+        gNumber.addEventListener("input", () => {
+            gRange.value = gNumber.value;
+            updateColor();
+        });
+        bNumber.addEventListener("input", () => {
+            bRange.value = bNumber.value;
+            updateColor();
+        });
+
+        updateColor();
+    </script>
+
+</body>
+</html>
